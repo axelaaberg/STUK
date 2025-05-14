@@ -9,11 +9,11 @@
 
     <meta charset="UTF-8" />
     <title>STUK</title>
-    <script>
+    <!-- <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("service-worker.js");
       }
-    </script>
+    </script> -->
     <style>
       body {
         margin: 0;
@@ -50,13 +50,16 @@
       }
 
       .card {
-        width: 300px;
-        height: 200px;
+        width: 80vw;
+        height: calc(80vw * (1047/659)); /* Relación 8:5 (alto = ancho * 8/5 ≈ 1.6) */
+        max-width: calc(75vh / (1047/659)); /* que no sobrepase la pantalla */
+        max-height: 75vh;
         position: relative;
         transform-style: preserve-3d;
-        transition: transform 0.8s;
+        transition: transform 0.3s;
         cursor: pointer;
       }
+
 
       .card.flipped {
         transform: rotateY(180deg);
@@ -67,7 +70,6 @@
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        /* border-radius: 12px; */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         display: flex;
         justify-content: center;
@@ -78,11 +80,11 @@
       }
 
       .card-front {
-        background: #34a853;
+        background: purple;
       }
 
       .card-back {
-        background: #ea4335;
+        background: blue;
         transform: rotateY(180deg);
       }
     </style>
