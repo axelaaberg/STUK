@@ -50,8 +50,8 @@
       }
 
       .card {
-        width: 80vw;
-        height: calc(80vw * (1047/659)); /* Relación 8:5 (alto = ancho * 8/5 ≈ 1.6) */
+        width: 90vw;
+        height: calc(90vw * (1047/659)); /* Relación 8:5 (alto = ancho * 8/5 ≈ 1.6) */
         max-width: calc(75vh / (1047/659)); /* que no sobrepase la pantalla */
         max-height: 75vh;
         position: relative;
@@ -87,6 +87,20 @@
         background: blue;
         transform: rotateY(180deg);
       }
+
+      .content-back {
+        transform: rotate(90deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo {
+        width: 40%;
+        max-width: 100px;
+      }
+
     </style>
   </head>
   <body>
@@ -95,7 +109,13 @@
     <div class="card-container">
       <div class="card" onclick="this.classList.toggle('flipped')">
         <div class="card-side card-front">Frente</div>
-        <div class="card-side card-back">Reverso</div>
+        <div class="card-side card-back">
+            <div class="content-back">
+                <h2>Innehavaren av detta kort är medlem i:</h2>
+                <img src="logo.png" alt="Logo" class="logo"/>
+                <h2>Alla studentrabatter hittar du på studentkortet.se eller i STUK-appen</h2>
+            </div>
+        </div>
       </div>
     </div>
   </body>
