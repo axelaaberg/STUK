@@ -1,11 +1,11 @@
   function spawnFloatingImage() {
     const img = document.createElement("img");
-    img.src = "logo-corto.png"; 
+    img.src = "logo-corto-grey.png"; 
     img.className = "floating-image";
 
     // Random direction
     const angle = Math.random() * 2 * Math.PI;
-    const distance = 600; // how far it drifts
+    const distance = 900; // how far it drifts
     const x = Math.cos(angle) * distance + "px";
     const y = Math.sin(angle) * distance + "px";
     img.style.setProperty("--x", x);
