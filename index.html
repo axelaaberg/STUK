@@ -18,6 +18,11 @@
 
 
     <style>
+      :root{
+        --bar-height: 64px;
+        --bar-bg: #ffffff;
+        --bar-pad: 16px;
+      }
       body {
         margin: 0;
         height: 100vh;
@@ -49,6 +54,8 @@
       .card-container {
         perspective: 1000px;
         z-index: 1;
+        /* keep the card visible above the page bottom bar */
+        margin-bottom: calc(var(--bar-height) + 12px);
       }
 
       .card {
@@ -223,7 +230,61 @@
         border-radius: 10px;
       }
 
-  
+      /* Bottom bar */
+      .bottom-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--bar-height);
+        background: var(--bar-bg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--bar-pad);
+        z-index: 1200;
+
+        font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: rgba(0, 0, 0, 0.83);
+        font-weight: 450;
+        
+      }
+
+      .bottom-left { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+      }
+
+      .bottom-right { 
+        display: flex; 
+        align-items: center; 
+        gap: 12px; 
+      }
+
+      .icon-btn {
+        background: transparent;
+        border: none;
+        padding: 6px;
+        border-radius: 8px;
+        cursor: pointer;
+        display:flex; align-items:center; justify-content:center;
+      }
+
+      .icon-btn img { 
+        width: 28px; 
+        height: 28px; 
+        display: block; 
+      }
+
+      .icon-btn:hover { 
+        background: rgba(0,0,0,0.06); 
+      }
+
+
+  /*further development: 
+  - consider changing to random speeds of the floaters 
+  */
 
 
     </style>
@@ -236,8 +297,8 @@
         <div class="card-side">
           <div class="card-front-name">Adriana Escamilla Fernández</div>
           <div class="card-front-number">970809-8489</div>
-          <div class="card-front-number-xs-id">6084 7439 7382 9832</div>
-          <div class="card-front-number-xs-vote">Valkod: 878324</div>
+          <div class="card-front-number-xs-id">6038 0224 4731 4836</div>
+          <div class="card-front-number-xs-vote">Valkod: 800085</div>
           <div class="card-front-term">HT 2025</div>
           <div class="card-front-number-due">GILTIGT TILL: 2026-02-15</div>
           <div class="card-front-number-due-mini">GILTIGT TILL: 2026-02-15</div>
@@ -245,13 +306,27 @@
           <div class="white-box-mini"></div>
           <div class="white-box-small"></div>
           <div class="grey-box"></div>
-          <img src="card-front.jpg" alt="Card Front" class="card-front-image"/>
+          <img src="images/card-front.jpg" alt="Card Front" class="card-front-image"/>
         </div>
         <div class="card-side card-back">
             <div class="content-back">
-                <img src="card-back.jpg" alt="Card Back" class="card-back-image"/>
+                <img src="images/card-back.jpg" alt="Card Back" class="card-back-image"/>
             </div>
         </div>
+      </div>
+    </div>
+    
+    <!-- Bottom bar: left input and two clickable icons on the right -->
+    <div class="bottom-bar" role="toolbar" aria-label="Bottom actions">
+      <div class="bottom-left">Stäng</div>
+
+      <div class="bottom-right">
+        <button class="icon-btn" aria-label="Help" title="Help" type="button" onclick="console.log('Help clicked')">
+          <img src="images/icon.png" alt="help"/>
+        </button>
+        <button class="icon-btn" aria-label="Profile" title="Profile" type="button" onclick="console.log('Profile clicked')">
+          <img src="images/logo-corto.png" alt="profile"/>
+        </button>
       </div>
     </div>
   </body>

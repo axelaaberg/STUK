@@ -1,6 +1,6 @@
   function spawnFloatingImage() {
     const img = document.createElement("img");
-    img.src = "logo-corto-grey.png"; 
+    img.src = "images/logo-corto-grey.png"; 
     img.className = "floating-image";
 
     // Random direction
