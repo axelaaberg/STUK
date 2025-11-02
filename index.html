@@ -16,6 +16,11 @@
     <style>
       * {
         -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;    /* Safari */
+        -moz-user-select: none;       /* Firefox */
+        -ms-user-select: none;        /* IE10+/Edge */
+        user-select: none;            /* Standard */
+        -webkit-touch-callout: none;  /* iOS long-press menu */
       }
 
       :root{
@@ -150,7 +155,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 1rem calc(env(safe-area-inset-bottom)); 
+        padding: 0 0.5rem calc(env(safe-area-inset-bottom)) 1rem; 
         box-sizing: border-box;
         z-index: 10;
         font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -186,8 +191,8 @@
       }
 
       .icon-btn img {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
         display: block;
       }
 
@@ -297,7 +302,7 @@
     </div>
 
     <div class="bottom-bar" role="toolbar" aria-label="Bottom actions">
-      <div class="bottom-left" aria-label="Close" type="button" onclick="console.log('close clicked')">Stäng</div>
+      <div class="bottom-left" onclick="console.log('close clicked')">Stäng</div>
 
       <div class="bottom-right">
         <button class="icon-btn" aria-label="QR" type="button" onclick="console.log('QR clicked')">
