@@ -1,4 +1,4 @@
-  function spawnFloatingImage() {
+function spawnFloatingImage() {
     const img = document.createElement("img");
     img.src = "images/logo-corto-grey.png"; 
     img.className = "floating-image";

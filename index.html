@@ -14,6 +14,10 @@
     <title>STUK</title>
 
     <style>
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+
       :root{
         --bar-height-base: 3.5rem;
       }
@@ -119,6 +123,7 @@
         width: 85%;
       }
 
+
       .card-front-name            { top: 30.30%; left: 40.0%; font-size: clamp(0.85rem, 0.83vw, 1.05rem); }
       .card-front-number          { top: 30.50%; left: 34.0%; font-size: clamp(0.75rem, 0.73vw, 0.95rem); }
       .card-front-number-xs-id    { top: 31.05%; left: 27.5%; font-size: clamp(0.55rem, 0.52vw, 0.75rem); }
@@ -187,11 +192,82 @@
         display: block;
       }
 
+      .overlay-shadow {
+        position: fixed;
+        inset: 0;
+        display: none; 
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.35);
+        z-index: 20; 
+      }
+
+      .overlay-shadow.open {
+        display: flex; /* qr.js accesses and adds attaches this class to overlay-shadow */ 
+      }
+
+      .qr-code-container {
+        position: relative;
+        width: min(90vw, calc(75vh / (1047/659)));
+        aspect-ratio: 1 / 1.2;
+        background: #f5f5f5;
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      .qr-pink-text {
+        position: absolute;
+        top: 7%;
+        font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+        font-weight: 400;
+        color: #fb2a5f;
+        z-index: 22;
+      }
+
+      .qr-code-white-box {
+        position: absolute;
+        bottom: 10%;
+        width: 80%;
+        height: 67%;
+        background: white;
+        z-index: 22;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .qr-error-message {
+        color: #333;
+        font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+        margin: 0;
+        line-height: 1.3;
+      }
+      
+
+    
+    
 
     </style>
   </head>
   <body>
     <script src="floaters.js"></script>
+    <script src="qr.js"></script>
+   
+    <div id="qr-overlay" class="overlay-shadow" aria-hidden="true">
+      <div class="qr-code-container" aria-modal="true" aria-label="QR code"> 
+        <div class="qr-pink-text">QR-kod för ditt kort</div>
+        <div class="qr-code-white-box">
+          <div class="qr-error-message">QR-koden kunde inte genereras på grund av ett tekniskt fel. <br> <br> Försök igen om en stund.</div>
+        </div>
+      </div>
+    </div>
 
     <div class="card-container">
       <div class="card" onclick="this.classList.toggle('flipped')">
@@ -229,5 +305,5 @@
         </button>
       </div>
     </div>
-  </body>
+    </body>
 </html>

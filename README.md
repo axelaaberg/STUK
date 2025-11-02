@@ -4,7 +4,7 @@ A digital student card for Adriana
 ## How to Use
 
 1. Open this link on your mobile device:  
-   **[axelaaberg.github.io/Stuk](https://axelaaberg.github.io/Stuk)**
+   **[axelaaberg.github.io/STUK](https://axelaaberg.github.io/STUK)**
 
 2. Add the web app to your home screen:  
    - On **iPhone (Safari)**: Tap the **"Share"** button → Select **"Add to Home Screen"**  
