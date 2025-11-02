@@ -25,8 +25,12 @@
 
       :root{
         /* base visual height of the bottom bar (not including device safe area) */
-        --bar-height-base: 2.0rem;
+        --bar-height-base: 1.8rem;
       }
+        /* fix so if android --bar-height-base: 3.5rem;
+        and center the card vertically*/
+
+
 
       html, body {
         margin: 0;
@@ -39,11 +43,19 @@
       body {
         background:#555555;
         font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: calc(var(--bar-height-base) + env(safe-area-inset-bottom)); /* flex centering accounts for the fixed bottom bar */  
+        display: block;
+        padding: 0;
         box-sizing: border-box;
+      }
+
+      /* Visible area above the bottom bar. For centering reliably. */
+      .viewport {
+        height: calc(100dvh - (var(--bar-height-base) + env(safe-area-inset-bottom)));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
       }
 
       .floating-image {
@@ -279,8 +291,9 @@
       </div>
     </div>
 
-    <div class="card-container">
-      <div class="card" onclick="this.classList.toggle('flipped')">
+    <div class="viewport">
+      <div class="card-container">
+        <div class="card" onclick="this.classList.toggle('flipped')">
         <div class="card-side">
           <div class="card-front-text card-front-name">Adriana Escamilla Fernández</div>
           <div class="card-front-text card-front-number">970809-8489</div>
@@ -299,6 +312,7 @@
             <div class="content-back">
                 <img src="images/card-back.jpg" alt="Card Back" class="card-back-image"/>
             </div>
+        </div>
         </div>
       </div>
     </div>
