@@ -3,7 +3,7 @@
   <head>
     <link rel="manifest" href="manifest.json" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="apple-mobile-web-app-capable" content="yes">  <!--old ver-->
+    <meta name="apple-mobile-web-app-capable" content="yes">  <!-- old ver -->
     <meta name="mobile-web-app-capable" content="yes">        <!-- new ver -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-title" content="Studentkortet" />
@@ -15,8 +15,6 @@
 
     <style>
       :root{
-        --card-gap-bottom: 0.75rem;
-        /* Height of the bottom bar (used to offset centering) */
         --bar-height-base: 3.5rem;
       }
 
@@ -113,77 +111,22 @@
       .white-box-small { position: absolute; top: 2%; left: 2%;  width: 11%; height: 35%; background-color: white; z-index: 2; }
       .grey-box        { position: absolute; top: 79.5%; left: 25.5%; width: 3%;  height: 15.1%; background-color: #e4e4e2; z-index: 2; }
 
-      /* Use clamp for responsive font sizing: preserves look on large screens and scales down on phones */
-      .card-front-name {
+
+      .card-front-text {
         position: absolute;
-        top: 30.3%;
-        left: 40%;
-        font-size: clamp(0.85rem, 0.83vw, 1.05rem);
         transform: translateX(-50%) rotate(90deg);
         z-index: 3;
         width: 85%;
       }
 
-      .card-front-number {
-        position: absolute;
-        top: 30.5%;
-        left: 34%;
-        font-size: clamp(0.75rem, 0.73vw, 0.95rem);
-        transform: translateX(-50%) rotate(90deg);
-        z-index: 3;
-        width: 85%;
-      }
+      .card-front-name            { top: 30.30%; left: 40.0%; font-size: clamp(0.85rem, 0.83vw, 1.05rem); }
+      .card-front-number          { top: 30.50%; left: 34.0%; font-size: clamp(0.75rem, 0.73vw, 0.95rem); }
+      .card-front-number-xs-id    { top: 31.05%; left: 27.5%; font-size: clamp(0.55rem, 0.52vw, 0.75rem); }
+      .card-front-number-xs-vote  { top: 31.05%; left: 22.5%; font-size: clamp(0.55rem, 0.52vw, 0.75rem); }
+      .card-front-term            { top: 30.50%; left: 16.5%; font-size: clamp(0.85rem, 0.84vw, 1.05rem); }
+      .card-front-number-due      { top: 30.80%; left: 10.0%; font-size: clamp(0.72rem, 0.68vw, 0.95rem); }
+      .card-front-number-due-mini { top: 105.7%; left: 27.0%; font-size: clamp(0.42rem, 0.405vw, 0.6rem); color: #4e4e4e; }
 
-      .card-front-number-xs-id {
-        position: absolute;
-        top: 31.05%;
-        left: 27.5%;
-        font-size: clamp(0.55rem, 0.52vw, 0.75rem);
-        transform: translateX(-50%) rotate(90deg);
-        z-index: 3;
-        width: 85%;
-      }
-
-      .card-front-number-xs-vote {
-        position: absolute;
-        top: 31.05%;
-        left: 22.5%;
-        font-size: clamp(0.55rem, 0.52vw, 0.75rem);
-        transform: translateX(-50%) rotate(90deg);
-        z-index: 3;
-        width: 85%;
-      }
-
-      .card-front-term {
-        position: absolute;
-        top: 30.5%;
-        left: 16.5%;
-        font-size: clamp(0.85rem, 0.84vw, 1.05rem);
-        transform: translateX(-50%) rotate(90deg);
-        z-index: 3;
-        width: 85%;
-      }
-
-      .card-front-number-due {
-        position: absolute;
-        top: 30.8%;
-        left: 10%;
-        font-size: clamp(0.72rem, 0.68vw, 0.95rem);
-        transform: translateX(-50%) rotate(90deg);
-        z-index: 3;
-        width: 85%;
-      }
-
-      .card-front-number-due-mini {
-        position: absolute;
-        color: #4e4e4e;
-        top: 105.7%;
-        left: 27%;
-        font-size: clamp(0.42rem, 0.405vw, 0.6rem);
-        transform: translateX(-50%) rotate(90deg);
-        z-index: 3;
-        width: 85%;
-      }
 
       .card-back-image {
         transform: rotate(-90deg);
@@ -204,7 +147,7 @@
         justify-content: space-between;
         padding: 0 1rem calc(env(safe-area-inset-bottom)); 
         box-sizing: border-box;
-        z-index: 1200;
+        z-index: 10;
         font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         color: rgba(0, 0, 0, 0.83);
         font-weight: 450;
@@ -253,13 +196,13 @@
     <div class="card-container">
       <div class="card" onclick="this.classList.toggle('flipped')">
         <div class="card-side">
-          <div class="card-front-name">Adriana Escamilla Fernández</div>
-          <div class="card-front-number">970809-8489</div>
-          <div class="card-front-number-xs-id">6038 0224 4731 4836</div>
-          <div class="card-front-number-xs-vote">Valkod: 800085</div>
-          <div class="card-front-term">HT 2025</div>
-          <div class="card-front-number-due">GILTIGT TILL: 2026-02-15</div>
-          <div class="card-front-number-due-mini">GILTIGT TILL: 2026-02-15</div>
+          <div class="card-front-text card-front-name">Adriana Escamilla Fernández</div>
+          <div class="card-front-text card-front-number">970809-8489</div>
+          <div class="card-front-text card-front-number-xs-id">6038 0224 4731 4836</div>
+          <div class="card-front-text card-front-number-xs-vote">Valkod: 800085</div>
+          <div class="card-front-text card-front-term">HT 2025</div>
+          <div class="card-front-text card-front-number-due">GILTIGT TILL: 2026-02-15</div>
+          <div class="card-front-text card-front-number-due-mini">GILTIGT TILL: 2026-02-15</div>
           <div class="white-box-large"></div>
           <div class="white-box-mini"></div>
           <div class="white-box-small"></div>
