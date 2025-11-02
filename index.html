@@ -24,7 +24,8 @@
       }
 
       :root{
-        --bar-height-base: 3.0rem;
+        /* base visual height of the bottom bar (not including device safe area) */
+        --bar-height-base: 3.5rem;
       }
 
       html, body {
@@ -157,12 +158,12 @@
         left: 0;
         right: 0;
         bottom: 0;
-        height: var(--bar-height-base);
+        height: calc(var(--bar-height-base) + env(safe-area-inset-bottom));
         background: white;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 0.5rem calc(env(safe-area-inset-bottom)) 1rem; 
+        padding: 0 0.5rem 0 1rem;
         box-sizing: border-box;
         z-index: 10;
         font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
