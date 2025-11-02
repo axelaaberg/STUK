@@ -19,9 +19,9 @@
 
     <style>
       :root{
-        --bar-height: 64px;
+        --bar-height: 7vh;
         --bar-bg: #ffffff;
-        --bar-pad: 16px;
+        --bar-pad: 1vw;
       }
       body {
         margin: 0;
@@ -259,7 +259,7 @@
       .bottom-right { 
         display: flex; 
         align-items: center; 
-        gap: 12px; 
+        gap: 0.3vw; 
       }
 
       .icon-btn {
@@ -281,10 +281,6 @@
 
  
 
-
-  /*further development: 
-  - consider changing to random speeds of the floaters 
-  */
 
 
     </style>
@@ -316,16 +312,15 @@
       </div>
     </div>
     
-    <!-- Bottom bar: left input and two clickable icons on the right -->
     <div class="bottom-bar" role="toolbar" aria-label="Bottom actions">
       <div class="bottom-left">Stäng</div>
 
       <div class="bottom-right">
-        <button class="icon-btn" aria-label="Help" title="Help" type="button" onclick="console.log('Help clicked')">
-          <img src="images/icon.png" alt="help"/>
+        <button class="icon-btn" aria-label="QR" type="button" onclick="console.log('QR clicked')">
+          <img src="images/QR.png" alt="QR"/>
         </button>
-        <button class="icon-btn" aria-label="Profile" title="Profile" type="button" onclick="console.log('Profile clicked')">
-          <img src="images/refresh-arrow.png" alt="profile"/>
+        <button class="icon-btn" aria-label="refresh" type="button" onclick="console.log('refresh clicked')">
+          <img src="images/refresh-arrow.png" alt="refresh"/>
         </button>
       </div>
     </div>
