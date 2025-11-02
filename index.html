@@ -15,10 +15,9 @@
 
     <style>
       :root{
-        --bar-height-base: 3.75rem;
-        --bar-bg: #ffffff;
-        --bar-pad: 1rem;
         --card-gap-bottom: 0.75rem;
+        /* Height of the bottom bar (used to offset centering) */
+        --bar-height-base: 3.5rem;
       }
 
       html, body {
@@ -35,6 +34,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-bottom: calc(var(--bar-height-base) + env(safe-area-inset-bottom)); /* flex centering accounts for the fixed bottom bar */  
+        box-sizing: border-box;
       }
 
       .floating-image {
@@ -53,11 +54,10 @@
           transform: translate(-50%, -50%) translate(var(--x), var(--y));
         }
       }
+
       .card-container {
         perspective: 1000px;
         z-index: 1;
-        /* keep the card visible above the page bottom bar and safe area */
-        margin-bottom: calc(var(--bar-height-base) + env(safe-area-inset-bottom) + var(--card-gap-bottom));
       }
 
       .card {
@@ -198,11 +198,11 @@
         right: 0;
         bottom: 0;
         height: var(--bar-height-base);
-        background: var(--bar-bg);
+        background: white;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 var(--bar-pad) calc(env(safe-area-inset-bottom)); 
+        padding: 0 1rem calc(env(safe-area-inset-bottom)); 
         box-sizing: border-box;
         z-index: 1200;
         font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -239,8 +239,8 @@
       }
 
       .icon-btn img {
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 30px;
         display: block;
       }
 
