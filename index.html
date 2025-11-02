@@ -24,12 +24,8 @@
       }
 
       :root{
-        /* base visual height of the bottom bar (not including device safe area) */
         --bar-height-base: 1.8rem;
       }
-        /* fix so if android --bar-height-base: 3.5rem;
-        and center the card vertically*/
-
 
 
       html, body {
@@ -104,7 +100,6 @@
         height: 100%;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden; /* iOS Safari */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -281,6 +276,7 @@
   <body>
     <script src="floaters.js"></script>
     <script src="qr.js"></script>
+    <script src="barheight-iOS.js"></script>
    
     <div id="qr-overlay" class="overlay-shadow" aria-hidden="true">
       <div class="qr-code-container" aria-modal="true" aria-label="QR code"> 
