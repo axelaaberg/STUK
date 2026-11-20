@@ -1,5 +1,5 @@
 # STUK  
-A digital student card for Adriana
+A digital student card
 
 ## How to Use
 
