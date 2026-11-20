@@ -164,8 +164,8 @@
         position: fixed;
         left: 0;
         right: 0;
-        bottom: 0;
-        height: calc(var(--bar-height-base) + env(safe-area-inset-bottom));
+        bottom: env(safe-area-inset-bottom);
+        height: var(--bar-height-base);
         background: white;
         display: flex;
         align-items: center;
